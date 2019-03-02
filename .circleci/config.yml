@@ -1,5 +1,12 @@
 version: 2.1
 jobs:
+  benchmark:
+    working_directory: /go/src/github.com/huttotw/count
+    docker:
+      - image: golang:1.11
+    steps:
+      - checkout
+      - run: go test -v -run none -bench . -benchmem -benchtime 3s github.com/huttotw/count
   security:
     working_directory: /go/src/github.com/huttotw/count
     docker:
