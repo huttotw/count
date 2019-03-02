@@ -4,7 +4,7 @@
 
 Count is a tool to count high volume things and persisting the aggregate to a store at some interval.
 
-Potential cases:
+**Potential use cases:**
 - Counting the number page views every minute
 - Counting the number of messages processed by a queue every second.
 
