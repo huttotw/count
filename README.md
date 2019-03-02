@@ -1,5 +1,7 @@
 # count
 
+[![CircleCI](https://circleci.com/gh/huttotw/count/tree/master.svg?style=svg)](https://circleci.com/gh/huttotw/count/tree/master)
+
 Count is a tool to count high volume things and persisting the aggregate to a store at some interval.
 
 Potential cases:
