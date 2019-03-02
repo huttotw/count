@@ -1,0 +1,32 @@
+version: 2.1
+jobs:
+  security:
+    working_directory: /go/src/github.com/huttotw/count
+    docker:
+      - image: golang:1.11
+    steps:
+      - checkout
+      - run: go get github.com/securego/gosec/cmd/gosec/...
+      - run: gosec -exclude=G104 ./...
+  test:
+    working_directory: /go/src/github.com/huttotw/count
+    docker:
+      - image: golang:1.11
+    steps:
+      - checkout
+      - run: go test -v github.com/huttotw/count
+  vet:
+    working_directory: /go/src/github.com/huttotw/count
+    docker:
+      - image: golang:1.11
+    steps:
+      - checkout
+      - run: go vet -v github.com/huttotw/count
+
+workflows:
+  version: 2
+  default:
+    jobs:
+      - security
+      - test
+      - vet
